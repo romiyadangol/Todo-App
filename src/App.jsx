@@ -6,6 +6,7 @@ class App extends React.Component{
 
     this.state = {
       list : ['Go to GYM!','Eat healthy','Go to shopping'],
+      input : '',
     }
   }
   render(){
@@ -16,7 +17,13 @@ class App extends React.Component{
         </section>
 
         <section className='input-wrapper'>
-          <input type="text" placeholder='Enter your task' name="" id="" />
+          <input type="text" placeholder='Enter your task' onChange={(e)=>{
+              this.setState({
+                input : e.target.value,
+              })
+
+            }
+          }/>
           <button type='Submit'onClick={()=>{
             this.setState({
               /**
@@ -24,7 +31,7 @@ class App extends React.Component{
                * [...["Go to GYM!", "Eat healthy"],"something"]
                * ["Go to GYM!", "Eat healthy","something"]
                */
-              list : [...this.state.list,"Buy food"],//spread operator
+              list : [...this.state.list,this.state.input],//spread operator
               
             })
           }}>Add</button>

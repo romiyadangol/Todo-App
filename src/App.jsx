@@ -17,14 +17,14 @@ class App extends React.Component{
         </section>
 
         <section className='input-wrapper'>
-          <input type="text" placeholder='Enter your task' value={this.state.input} onChange={(e)=>{
+          <input type="text" className='input-text' placeholder='Enter your task' value={this.state.input} onChange={(e)=>{
               this.setState({
                 input : e.target.value,
               })
 
             }
           }/>
-          <button onClick={()=>{
+          <button className='add-btn' onClick={()=>{
             this.setState({
               /**
                * ["Go to GYM!", "Eat healthy", "Go to shopping"]

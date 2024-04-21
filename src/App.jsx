@@ -17,7 +17,7 @@ class App extends React.Component{
         </section>
 
         <section className='input-wrapper'>
-          <input type="text" placeholder='Enter your task' onChange={(e)=>{
+          <input type="text" placeholder='Enter your task' value={this.state.input} onChange={(e)=>{
               this.setState({
                 input : e.target.value,
               })
@@ -32,23 +32,25 @@ class App extends React.Component{
                * ["Go to GYM!", "Eat healthy","something"]
                */
               list : [...this.state.list,this.state.input],//spread operator
-              
+              input : '',
             })
+            console.log(this.state.input);
           }}>Add</button>
         </section>
 
         <section className='list-wrapper'>
           <ul>
             {this.state.list.map((element,index) => {
-              return <li key={index}><input type="checkbox" onChange={() => {
+              return (<li key={index}>
+                <input type="checkbox"/>
                 {element}
-              }}/>{element}
-              <button onClick={()=>{
+                <button onClick={()=>{
                 this.setState({
                   list : [...this.state.list.filter((element,i) => i !== index)],
                 })
-              }}>Delete</button>
+              }} class="btn btn-danger">Delete</button>
               </li>
+              );
             })}
           </ul>
         </section>

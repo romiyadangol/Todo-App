@@ -43,7 +43,11 @@ class App extends React.Component{
               return <li key={index}><input type="checkbox" onChange={() => {
                 {element}
               }}/>{element}
-              <button>Delete</button>
+              <button onClick={()=>{
+                this.setState({
+                  list : [...this.state.list.filter((element,i) => i !== index)],
+                })
+              }}>Delete</button>
               </li>
             })}
           </ul>

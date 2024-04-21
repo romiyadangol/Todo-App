@@ -24,7 +24,7 @@ class App extends React.Component{
 
             }
           }/>
-          <button type='Submit'onClick={()=>{
+          <button onClick={()=>{
             this.setState({
               /**
                * ["Go to GYM!", "Eat healthy", "Go to shopping"]
@@ -40,7 +40,11 @@ class App extends React.Component{
         <section className='list-wrapper'>
           <ul>
             {this.state.list.map((element,index) => {
-              return <li key={index}>{element}</li>
+              return <li key={index}><input type="checkbox" onChange={() => {
+                {element}
+              }}/>{element}
+              <button>Delete</button>
+              </li>
             })}
           </ul>
         </section>

@@ -48,7 +48,7 @@ class App extends React.Component{
                 this.setState({
                   list : [...this.state.list.filter((element,i) => i !== index)],
                 })
-              }} class="btn btn-danger">Delete</button>
+              }} className="btn btn-danger">Delete</button>
               </li>
               );
             })}
